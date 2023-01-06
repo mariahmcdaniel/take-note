@@ -85,14 +85,19 @@ app.post("/api/notes", (req, res) => {
     res.error("An error occured while attempting to save your note");
   }
 });
-
-app.delete("/api/notes", (req, res) => {
+const deleteNote = (data, id) => {
+  let filtered = data.filter((note) => note.note_id !== id);
+  writeToFile(filtered);
+};
+app.delete("/api/notes/:delete", (req, res) => {
   console.info(`${req.method} request received to remove a note`);
-  const noteId = req.body.note_id;
+  const targetNoteId = req.body.note_id;
   const dbFilePath = path.join(__dirname, "./db/db.json");
   const retrievedData = fs.readFileSync(dbFilePath, "utf8");
+  const parsedData = JSON.parse(retrievedData);
   console.log(retrievedData);
-  console.log(noteId);
+  console.log(parsedData);
+  deleteNote(parsedData, targetNoteId);
 });
 
 app.listen(PORT, () => {
