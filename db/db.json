@@ -1,26 +1,17 @@
 [
-  {
-    "title": "Test Title",
-    "text": "Test text"
-  },
-  {
-    "title": "Mariah",
-    "text": "This is a test",
-    "note_id": "fdeb"
-  },
-  {
-    "title": "Follow up with Stacy",
-    "text": "Refer to email for info",
-    "note_id": "ddaf"
-  },
-  {
-    "title": "Spring Colors",
-    "text": "Pick out colors for the spring collection",
-    "note_id": "8d31"
-  },
-  {
-    "title": "Inventory",
-    "text": "Take inventory of the store",
-    "note_id": "b913"
-  }
+    {
+        "title": "Follow up with Stacy",
+        "text": "Refer to email for info",
+        "id": "ddaf"
+    },
+    {
+        "title": "Spring Colors",
+        "text": "Pick out colors for the spring collection",
+        "id": "8d31"
+    },
+    {
+        "title": "Inventory",
+        "text": "Take inventory of the store",
+        "id": "b913"
+    }
 ]
