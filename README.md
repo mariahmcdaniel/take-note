@@ -4,7 +4,7 @@
 
 This application allows a user to write and save notes. It was created using front end starter code which I connected to the back end using Express.js.
 
-[click here to access my application]()
+[click here to access my application](https://hidden-fjord-54822.herokuapp.com/)
 
 ## Table of contents
 
@@ -18,8 +18,6 @@ This application allows a user to write and save notes. It was created using fro
 This app can be used to create and store notes so that the user can keep their thoughts and tasks organized in one easily accessible place. This app also allows for note deletion once they are no longer needed.
 
 ## Visuals
-
-[click here to view the demo](https://drive.google.com/file/d/1B5wdOpcjB3rpDGHG3fOET0KcC-uCocAv/view)
 
 Images:
 
