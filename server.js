@@ -26,6 +26,8 @@ const express = require("express");
 const PORT = process.env.PORT || 3001;
 const path = require("path");
 const fs = require("fs");
+const dataBase = require("./db/db.json");
+const uuid = require("./helpers/uuid");
 
 const app = express();
 
@@ -39,6 +41,58 @@ app.get("/", (req, res) => {
 
 app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/notes.html"));
+});
+
+app.get("/api/notes", (req, res) => {
+  console.info(`${req.method} request received for notes`);
+  const dbFilePath = path.join(__dirname, "./db/db.json");
+  const retrievedData = fs.readFileSync(dbFilePath, "utf8");
+  res.json(JSON.parse(retrievedData));
+});
+
+const writeToFile = (destination, content) =>
+  fs.writeFile(destination, JSON.stringify(content, null, 2), (err) =>
+    err ? console.error(err) : console.info(`\nData written to ${destination}`)
+  );
+
+const readAndAppend = (content, file) => {
+  fs.readFile(file, "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      const parsedData = JSON.parse(data);
+      parsedData.push(content);
+      writeToFile(file, parsedData);
+    }
+  });
+};
+
+app.post("/api/notes", (req, res) => {
+  console.info(`${req.method} request received to add a note`);
+
+  const { title, text } = req.body;
+
+  if (req.body) {
+    const newNote = {
+      title,
+      text,
+      note_id: uuid(),
+    };
+
+    readAndAppend(newNote, "./db/db.json");
+    res.json("Your note has been saved!");
+  } else {
+    res.error("An error occured while attempting to save your note");
+  }
+});
+
+app.delete("/api/notes", (req, res) => {
+  console.info(`${req.method} request received to remove a note`);
+  const noteId = req.body.note_id;
+  const dbFilePath = path.join(__dirname, "./db/db.json");
+  const retrievedData = fs.readFileSync(dbFilePath, "utf8");
+  console.log(retrievedData);
+  console.log(noteId);
 });
 
 app.listen(PORT, () => {
