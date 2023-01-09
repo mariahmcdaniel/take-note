@@ -2,7 +2,7 @@
 
 ## Description
 
-This application allows a user to write and save notes. It was created using front end starter code which I connected to the back end using Express.js.
+This application allows a user to write and save notes. It was created using front end starter code which I connected to the back end using Express.js. This application is deployed to Heroku.
 
 [click here to access my application](https://hidden-fjord-54822.herokuapp.com/)
 
