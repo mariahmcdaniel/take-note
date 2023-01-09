@@ -25,6 +25,8 @@ Images:
 
 ![add a note](./public/assets/images/notes.png)
 
+![save and delete](./public/assets/images/delete-save.png)
+
 Demo:
 
 ![Demo](https://media.giphy.com/media/3ScdrBIYM7100Ovw1X/giphy.gif)
