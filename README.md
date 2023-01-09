@@ -25,6 +25,10 @@ Images:
 
 ![add a note](./public/assets/images/notes.png)
 
+Demo:
+
+![Demo](https://media.giphy.com/media/3ScdrBIYM7100Ovw1X/giphy.gif)
+
 ## Questions
 
 For any further questions please reach out via:
